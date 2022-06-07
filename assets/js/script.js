@@ -34,8 +34,10 @@ function checkAnswer(){
 
     if (isCorrect){
         alert("hey! you got it right! :D");
+        incrementScore();
     } else {
     alert(`Awwww.... you answered ${userAnswer}. the correct answer was ${calculatedAnswer[0]}!`)
+    incrementWrongAnswer();
     }
     
 
@@ -55,12 +57,17 @@ function calculateCorrectAnswer() {
     }
     
 }
+
 function incrementScore(){
-
+ oldScore = parseInt(document.getElementById("score").innerText);
+ document.getElementById("score").innerText = ++oldScore;
 }
-function incrementWrongAwnser(){
 
+function incrementWrongAnswer(){
+    oldScore = parseInt(document.getElementById("incorrect").innerText);
+ document.getElementById("incorrect").innerText = ++oldScore;
 }
+
 function displayAdditionQuestion(operand1, operand2){
 
     document.getElementById("operand1").textContent = operand1;
