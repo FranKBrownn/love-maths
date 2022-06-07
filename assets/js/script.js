@@ -4,7 +4,7 @@
     for (let button of buttons){
         button.addEventListener("click" , function(){
             if (this.getAttribute("data-type") === "submit") {
-                checkAwnser();
+                checkAnswer();
             }
             else {
                 let gameType = this.getAttribute("data-type")
@@ -27,22 +27,22 @@ function runGame(gameType){
         throw `unknown game type : ${gameType}. Aborting!` ;
     }
 }
-function checkAwnser(){
-    let userAnswer = parseInt(document.getElementById("anwser-box").value);
-    let calculatedAnwser = calculateCorrectAnwser();
-    let isCorrect = userAnswer === calculatedAnwser[0];
+function checkAnswer(){
+    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
 
     if (isCorrect){
         alert("hey! you got it right! :D");
     } else {
-    alert(`Awwww.... you answered ${userAnswer}. the correct answer was ${calculateCorrectAnwser[0]}!`)
+    alert(`Awwww.... you answered ${userAnswer}. the correct answer was ${calculatedAnswer[0]}!`)
     }
     
 
-    runGame(calculatedAnwser[1]);
+    runGame(calculatedAnswer[1]);
 }
 
-function calculateCorrectAnwser() {
+function calculateCorrectAnswer() {
     let operand1 = parseInt(document.getElementById("operand1").innerText);
     let operand2 = parseInt(document.getElementById("operand2").innerText);
     let operator = (document.getElementById("operator").innerText);
